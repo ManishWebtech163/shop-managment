@@ -11,7 +11,7 @@ const AddShop = () => {
         getPlacePredictions,
         isPlacePredictionsLoading
     } = usePlacesService({
-        apiKey: "AIzaSyB2oQ55HQnBvIYio0GoNwucmPRKzoxusaw",
+        apiKey: `${import.meta.env.VITE_APP_GOOGLE_KEY}`,
     });
 
 
@@ -27,7 +27,7 @@ const AddShop = () => {
         setloading(true)
         if (savePlaceDetailsToState) {
             try {
-                const res = await axios.post("/api/add_shop", savePlaceDetailsToState)
+                const res = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/api/add_shop`, savePlaceDetailsToState)
                 alert(res.data)
                 setsavePlaceDetailsToState(null)
 

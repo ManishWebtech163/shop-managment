@@ -72,7 +72,7 @@ const ShopsMap = ({ mapCenter }) => {
 
 
     return (
-        <div>  <LoadScript googleMapsApiKey='AIzaSyB2oQ55HQnBvIYio0GoNwucmPRKzoxusaw'>
+        <div>  <LoadScript googleMapsApiKey={`${import.meta.env.VITE_APP_GOOGLE_KEY}`}>
             <GoogleMap mapContainerStyle={containerStyle} center={mapCenter ?? startLocation ?? center} zoom={mapCenter ? 15 : 10}>
 
                 {/* --show shop path-- */}

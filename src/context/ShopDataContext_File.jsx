@@ -31,7 +31,7 @@ const ShopDataContext_File = ({ children }) => {
     // --fetch shops data--
     async function fetchShops() {
         try {
-            const res = await axios.get("/api/shop_data")
+            const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/api/shop_data`)
             dispatch({ type: "SET_SHOPS_DATA", payload: res.data })
         } catch (error) {
             console.log(error);
@@ -45,7 +45,7 @@ const ShopDataContext_File = ({ children }) => {
     const deleteShop = async (e) => {
 
         try {
-            await axios.post("/api/delete_shop", {
+            await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/api/delete_shop`, {
                 location: e
             })
             fetchShops()

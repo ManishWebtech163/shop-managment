@@ -96,7 +96,7 @@ const ShopsMap = ({ mapCenter }) => {
                     {startLocation && <MarkerF position={startLocation}
                         icon={{
 
-                            url: '../../assets/person.svg',
+                            url: '../assets/person.svg',
                             scale: 1,
                         }}
 
@@ -106,7 +106,7 @@ const ShopsMap = ({ mapCenter }) => {
                         <MarkerF key={e.location} position={{ lat: e.lat, lng: e.lng }}
                             icon={{
 
-                                url: '../../assets/store.svg',
+                                url: '../assets/store.svg',
                                 scale: 1,
                             }}
 

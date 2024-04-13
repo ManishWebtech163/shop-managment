@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* --home page-- */
+.homePage {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  background-color: lightblue;
+  height: 100svh;
+  width: 100svw;
+}
+
+.homePage .shopsList {
+  padding: 1rem;
+  background-color: white;
+  overflow: auto;
+  height: 100%;
+}
+
+.homePage .shopsList .item {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.homePage .shopsList .item:hover {
+  background-color: lightgray;
+}
+
+.homePage .shopsList .item span {
+
+  width: 100%;
+  padding: 0.3rem 0;
+
+}
+
+.homePage .shopsList .item button {
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.homePage .shopsList .item button svg {
+  stroke: #222;
+  width: 20px;
+}
+
+.homePage .shopsList .addShopBtn {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+/* ----add shop page-- */
+.addShop {
+
+
+  & .form {
+    background-color: gainsboro;
+    width: 100%;
+
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 3px;
+
+
+    & .heading {
+      text-align: center;
+    }
+
+    & .field {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+
+      & label {
+        font-size: 1.2rem;
+        padding-bottom: 0.3rem;
+      }
+
+      & input {
+        padding: 1rem 0.5rem;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+      }
+    }
+
+    & .submitBtn {
+      font-size: 1rem;
+      padding: 0.3rem 1rem;
+      margin: auto;
+
+      &:disabled {
+        background-color: gray;
+      }
+    }
+  }
+}
+
+/* --addShopModal--- */
+
+.addShopModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  width: 100svw;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* -- */
+  visibility: hidden;
+  scale: 0.6;
+  pointer-events: none;
+  transition: 0.3s;
+  opacity: 0;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    pointer-events: all;
+  }
+
+  & .content {
+    width: 99%;
+    max-width: 600px;
+  }
+}

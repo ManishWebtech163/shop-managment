@@ -72,48 +72,49 @@ const ShopsMap = ({ mapCenter }) => {
 
 
     return (
-        <div>  <LoadScript googleMapsApiKey={`${import.meta.env.VITE_APP_GOOGLE_KEY}`}>
-            <GoogleMap mapContainerStyle={containerStyle} center={mapCenter ?? startLocation ?? center} zoom={mapCenter ? 15 : 10}>
+        <div>
+            <LoadScript googleMapsApiKey={`${import.meta.env.VITE_APP_GOOGLE_KEY}`}>
+                <GoogleMap mapContainerStyle={containerStyle} center={mapCenter ?? startLocation ?? center} zoom={mapCenter ? 15 : 10}>
 
-                {/* --show shop path-- */}
-                {startLocation && endLocation &&
-                    <>
-                        <DirectionsService options={{
-                            origin: startLocation,
-                            destination: endLocation,
-                            travelMode: "DRIVING",
-                        }}
-                            callback={onDirectionsServiceSuccess}
-                            onError={onDirectionsServiceError} />
-                        {directions && <DirectionsRenderer directions={directions} />}
+                    {/* --show shop path-- */}
+                    {startLocation && endLocation &&
+                        <>
+                            <DirectionsService options={{
+                                origin: startLocation,
+                                destination: endLocation,
+                                travelMode: "DRIVING",
+                            }}
+                                callback={onDirectionsServiceSuccess}
+                                onError={onDirectionsServiceError} />
+                            {directions && <DirectionsRenderer directions={directions} />}
 
 
-                    </>
+                        </>
 
-                }
-                {/* --show current location marker-- */}
-                {startLocation && <MarkerF position={startLocation}
-                    icon={{
-
-                        url: '../../assets/person.svg',
-                        scale: 1,
-                    }}
-
-                />}
-                {/* --markers-- */}
-                {shopDataContext.shopDataState.data && shopDataContext.shopDataState.data.map(e => (
-                    <MarkerF key={e.location} position={{ lat: e.lat, lng: e.lng }}
+                    }
+                    {/* --show current location marker-- */}
+                    {startLocation && <MarkerF position={startLocation}
                         icon={{
 
-                            url: '../../assets/store.svg',
+                            url: '../../assets/person.svg',
                             scale: 1,
                         }}
 
-                        onClick={(e) => setDistanceLocation({ lat: e.latLng.lat(), lng: e.latLng.lng() })} />
-                ))}
+                    />}
+                    {/* --markers-- */}
+                    {shopDataContext.shopDataState.data && shopDataContext.shopDataState.data.map(e => (
+                        <MarkerF key={e.location} position={{ lat: e.lat, lng: e.lng }}
+                            icon={{
 
-            </GoogleMap>
-        </LoadScript></div>
+                                url: '../../assets/store.svg',
+                                scale: 1,
+                            }}
+
+                            onClick={(e) => setDistanceLocation({ lat: e.latLng.lat(), lng: e.latLng.lng() })} />
+                    ))}
+
+                </GoogleMap>
+            </LoadScript></div>
     )
 }
 
